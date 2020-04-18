@@ -103,11 +103,15 @@ $ backless add --name <ModelName> --attributes <key:dataTypes>
 
 ### Example's Input
 
+##### Example to add one attribute.
+```shell
+$ backless add --name UserModel --attributes name:string
+```
+
 ##### You also can add multiple attributes for one model.
 ```shell
 $ backless add --name UserModel --attributes name:string,bornDate:number,isMale:boolean
 ```
-
 
 ## Authentication
 
