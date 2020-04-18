@@ -19,7 +19,7 @@
 
 ## Pre-requisite
 
-#### Make sure you have Node.js, MongoDB installed.
+#### Make sure you have Node.js and MongoDB installed.
 
 ## Installation
 
