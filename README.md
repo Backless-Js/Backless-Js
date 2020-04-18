@@ -99,7 +99,7 @@ $ backless create
 ```shell
 $ backless add --name <ModelName> --attributes <key:dataTypes>
 ```
-##### <ModelName> is a name for your model (example: UserModel), and <key:dataTypes> "key" is attribute's name and "dataTypes" is for attribute's type (String, Number, Boolean, Array)
+##### "ModelName" is a name for your model (example: UserModel), "key" is for attribute's name and "dataTypes" is for attribute's type (String, Number, Boolean, Array)
 
 ### Example's Input
 
