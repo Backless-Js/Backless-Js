@@ -14,6 +14,7 @@
 * [Version](#version)
 * [Updating](#update)
 * [Usage](#usage)
+* [Add Another Models](#Add Another Models)
 * [Authentication](#authentication)
 
 
@@ -91,7 +92,7 @@ $ backless create
 ### And Voilaa.... your server is ready to use!
 ![finish](./src/assets/finish.png)
 
-## Add Another models
+## Add Another Models
 
 ##### If you want to add another model for your server, you can use this command
 
