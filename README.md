@@ -91,18 +91,27 @@ $ backless create
 ### And Poooff.... your server is ready to use!
 ![finish](./src/assets/finish.png)
 
+
+## Add Another models
+
+##### If you want to add another model for your server, you can use this command
+
+```shell
+$ backless add --name <ModelName> --attributes <key:dataTypes>
+```
+##### <ModelName> is a name for your model (example: UserModel), and <key:dataTypes> "key" is attribute's name and "dataTypes" is for attribute's type (String, Number, Boolean, Array)
+
+### Example's Input
+
+##### You also can add multiple attributes for one model.
+```shell
+$ backless add --name UserModel --attributes name:string,bornDate:number,isMale:boolean
+```
+
+
 ## Authentication
 
 ### We gave you authentication method already. You can comment the authentication's route, if you didn't need that.
 
 ![authentication](./src/assets/authentication.png)
-
-## Add Another models
-
-### If you want to add another model for your server. you can use with this command
-
-
-```shell
-$ backless add --name <ModelName> --attributes <key:dataTypes>
-```
 
