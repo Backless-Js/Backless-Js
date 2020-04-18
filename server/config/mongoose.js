@@ -13,3 +13,5 @@ export default async function () {
     console.log("MongoDB Disconnnected.");
   }
 }
+
+export { MongoURL };

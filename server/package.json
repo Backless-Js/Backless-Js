@@ -4,7 +4,7 @@
   "description": "This server was created with Backless NPM Package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test mocha --timeout 10000 --exit",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
@@ -25,5 +25,11 @@
     "mongodb": "^3.5.6",
     "mongoose": "^5.9.9",
     "nodemon": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "chalk": "^4.0.0",
+    "mocha": "^7.1.1"
   }
 }
