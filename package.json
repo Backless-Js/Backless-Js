@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/darindra23/backless.git"
+    "url": "git+https://github.com/Backless-Js/Backless-Js.git"
   },
   "keywords": [
     "cli",
@@ -24,9 +24,9 @@
   "author": "Darindra R, M.Ramadhan, Marcell Pasaribu, Steven Setiawan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/darindra23/backless/issues"
+    "url": "https://github.com/Backless-Js/Backless-Js/issues"
   },
-  "homepage": "https://github.com/darindra23/backless#readme",
+  "homepage": "https://github.com/Backless-Js/Backless-Js#readme",
   "dependencies": {
     "boxen": "^4.2.0",
     "esm": "^3.2.25",
