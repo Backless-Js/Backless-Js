@@ -88,9 +88,8 @@ $ backless create
 ### Wait for a minute
 ![Loading](./src/assets/Loading.png)
 
-### And Poooff.... your server is ready to use!
+### And Voilaa.... your server is ready to use!
 ![finish](./src/assets/finish.png)
-
 
 ## Add Another models
 
