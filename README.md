@@ -14,7 +14,7 @@
 * [Version](#version)
 * [Updating](#update)
 * [Usage](#usage)
-* [Add Another Models](#AddAnotherModels)
+* [Add Another Models](#Add Another Models)
 * [Authentication](#authentication)
 
 
