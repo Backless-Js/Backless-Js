@@ -1,11 +1,17 @@
-![logo](./src/assets/imageedit_5_6538786522.png)
-# Backless-Js
+![logo](./src/assets/Logo.png)
+# Backless Js
 
 [![npm version](https://img.shields.io/npm/v/backless)](https://www.npmjs.com/package/backless) [![install size](https://packagephobia.now.sh/badge?p=backless)](https://packagephobia.now.sh/result?p=backless) [![npm downloads](https://img.shields.io/npm/dm/backless.svg?style=flat-square)](https://npm-stat.com/charts.html?package=backless)
 
-#### Build your own application's server easier with our package. 
+#### INSTANT EXPRESS REST API GENERATOR. 
 
-#### This application using ODM Mongoose for MongoDB, Express for server's framework, bcrypt.js for hashed password, jsonwebtoken for authentication, Mocha test framework and Chai as assertion library for test framework. 
+#### What packages does Backless Js REST API included?
+ - ODM Mongoose for MongoDB
+ - Express for server's framework
+ - BcryptJs for hashing password
+ - Jsonwebtoken for Authentication
+ - Mocha test framework
+ - Chai as assertion library for test framework 
 
 
 ## Table of Contents
@@ -18,20 +24,27 @@
 
 
 ## Pre-requisite
-
-#### Make sure you have Node.js and MongoDB installed.
+#### All items below must already installed in your machine
+```shell
+ Node Js & MongoDB 
+```
 
 ## Installation
 
-#### After pre-requisite has fullfilled, then you can install Backless-Js in your machine globally with command
+#### Install Backless Js globally using this command
 
 ```shell
 $ npm install -g backless
 ```
+##### or
+#### You could create Backless Js REST API instantly using this command
 
+```shell
+$ npx backless create
+```
 ## Version
 
-#### After installation, you can check the right version with this command 
+#### If you installed globally make sure you've already installed Backless Js correctly using this command 
 
 ```shell
 $ backless --v
@@ -44,27 +57,29 @@ $ backless --version
 
 ## Updating
 
-#### If the version that you have isn't the latest version, you can update it with this command as you used to install the package before
+#### To make sure our INSTANT EXPRESS REST API generator work correctly please make sure to always updated it to newer version using the same command as you install globally
 
 ```shell
-$ backless install -g backless
+$ npm install -g backless
 ```
 
 ## Usage
 
-#### After you make sure that the version is the latest, you can run this package to start build your server with this command
+#### You can run this command to start generating new server
+
+###### Notes : Make sure there is no server folder in your working directory otherwise Backless wont create new server
 
 ```shell
 $ backless create
 ```
 ### 1. Database Input
 
-#### After you run the command above, you will found text below. In this section you decide a name to your database that you want to use and press enter. The default name is (Backless-DB)
+#### In this section please input database name to your database that you want to use and press enter. The default name is (Backless-DB)
 ![DatabaseInput](./src/assets/databaseInput.png)
 
 ### 2. Model Input
 
-#### Next step, you will found this text below. In this section you have to type model's name to your database.The default name is (Foobar)
+#### Please input model name to your database.The default name is (Foobar)
 ![modelInput](./src/assets/modelInput.png)
 
 ### 3. Attributes Input
@@ -82,23 +97,24 @@ $ backless create
 ![portInput](./src/assets/portInput.png)
 
 ### 5. Jsonwebtoken Secret key Input
-#### After you input the port before port, you will found this text below and input that text to set your jsonwebtoken secret key in your '.env' file. the secret key default is 'Backless_Secret' if you let it empty.
+#### After you input the port before port, you will found this text below and input that text to set your jsonwebtoken secret key in your '.env' file. The secret key default is 'Backless_Secret' if you let it empty.
 ![jsonwebtokenInput](./src/assets/jsonwebtokenInput.png)
 
 ### Wait for a minute
 ![Loading](./src/assets/Loading.png)
 
-### And Voilaa.... your server is ready to use!
+### And Voilaa.... your server is ready to use !
 ![finish](./src/assets/finish.png)
 
 ## Add Another Models
 
 ##### If you want to add another model for your server, you can use this command
+###### Notes : Make sure you're currently on your working directory the same as Backless Server folder exist
 
 ```shell
-$ backless add --name <ModelName> --attributes <key:dataTypes>
+$ backless add --name <Model Name> --attributes <key> : <dataTypes>,<key> : <dataTypes>
 ```
-##### "ModelName" is a name for your model (example: UserModel), "key" is for attribute's name and "dataTypes" is for attribute's type (String, Number, Boolean, Array)
+##### "ModelName" is a name for your model (example: UserModel), "key" is for attribute's name and "dataTypes" is for attribute's type (String, Number, Boolean, Array) to add another attributes please use ',' to seperate each attribute
 
 ### Example's Input
 
@@ -115,6 +131,7 @@ $ backless add --name UserModel --attributes name:string,bornDate:number,isMale:
 ## Authentication
 
 ### We gave you authentication method already. You can comment the authentication's route, if you didn't need that.
+##### Notes : this images below are located on index routes folder
 
 ![authentication](./src/assets/authentication.png)
 
