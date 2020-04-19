@@ -7,7 +7,7 @@ import path from "path";
 const chalk = yargonaut.chalk();
 let spinner = ora();
 
-export default async function serve() {
+export default async function prove() {
   try {
     console.clear();
     console.log(
@@ -36,10 +36,14 @@ export default async function serve() {
       }
       let JSONPath = path.join(process.cwd(), mvcPath);
       JSONPath = JSONPath.replace(/\s/g, `\\ `);
-      spinner.text = chalk.green("Backless server are up and running ! 🎉🍻");
-      await execa.command(`npm run dev --prefix ${JSONPath}`);
-      spinner.text = chalk.red("Failed to starting your server.");
-      spinner.fail();
+      spinner.text = chalk.green(
+        "Wait a moment while we make sure our server was generated correctly"
+      );
+      await execa.command(`npm run test --prefix ${JSONPath}`);
+      spinner.text = chalk.green(
+        "All features are good to go, you can start server now 🍻"
+      );
+      spinner.succeed();
     }
   } catch (error) {
     console.clear();

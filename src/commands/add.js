@@ -10,6 +10,7 @@ import {
   addModel,
   toPascalCase,
   generateDocumentation,
+  generateTest,
 } from "../functions";
 const chalk = yargonaut.chalk();
 let spinner = ora();
@@ -60,29 +61,44 @@ export default async function add(argv) {
         })
       )
     );
+    let indexPath;
+    let mvcPath;
+    if (fs.existsSync(path.join(process.cwd(), "./server"))) {
+      indexPath = "./server/routes/index.js";
+      mvcPath = "./server";
+    } else if (fs.existsSync(path.join(process.cwd(), "./models"))) {
+      indexPath = "./routes/index.js";
+      mvcPath = ".";
+    }
     spinner.text = chalk.yellow("Please wait model are being generated.");
     spinner.start();
-    routeSource("./server/routes/index.js", argv.model);
+    routeSource(indexPath, argv.model);
     addRouting(
       "../templates/template-route.js",
-      `./server/routes/${argv.model.toLowerCase()}.js`,
+      `${mvcPath}/routes/${argv.model.toLowerCase()}.js`,
       argv.model
     );
     addController(
       "../templates/template-controller.js",
-      `./server/controllers/${argv.model.toLowerCase()}.js`,
+      `${mvcPath}/controllers/${argv.model.toLowerCase()}.js`,
       argv.model.toLowerCase(),
       attributes
     );
     addModel(
       "../templates/template-schema.js",
-      `./server/models/${toPascalCase(argv.model)}.js`,
+      `${mvcPath}/models/${toPascalCase(argv.model)}.js`,
+      argv.model.toLowerCase(),
+      attributes
+    );
+    generateTest(
+      "../templates/template.test.js",
+      `${mvcPath}/test/${argv.model.toLowerCase()}.test.js`,
       argv.model.toLowerCase(),
       attributes
     );
     generateDocumentation(
       "../templates/template-readme.md",
-      "./server/README.md",
+      "${mvcPath}/README.md",
       argv.model.toLowerCase(),
       attributes
     );
@@ -134,6 +150,8 @@ export default async function add(argv) {
       spinner.fail();
     } else {
       spinner.text = chalk.red("Failed to generate new model.");
+      spinner.fail();
+      spinner.text = chalk.yellow(error.message);
       spinner.fail();
       return error;
     }

@@ -113,6 +113,55 @@ function addModel(
   return { message };
 }
 
+function generateTest(
+  relTemplatePath,
+  relativeDest,
+  modelname,
+  modelStructureInput
+) {
+  const filePath = path.join(process.cwd(), relativeDest);
+  let message;
+
+  if (fs.existsSync(filePath)) {
+    message = "File already exists, remove or rename file first";
+    console.log(message);
+  } else {
+    const templatePath = path.join(__dirname, relTemplatePath);
+    let file = fs.readFileSync(templatePath, "utf8");
+
+    modelStructureInput.forEach((el) => {
+      if (el.type === "string") {
+        file = file.replace(
+          /\/\/backless-test/g,
+          `${el.name}: "foobar",\n      //backless-test`
+        );
+      } else if (el.type === "number") {
+        file = file.replace(
+          /\/\/backless-test/g,
+          `${el.name}: ${+23},\n      //backless-test`
+        );
+      } else if (el.type === "boolean") {
+        file = file.replace(
+          /\/\/backless-test/g,
+          `${el.name}: ${true},\n      //backless-test`
+        );
+      } else {
+        file = file.replace(
+          /\/\/backless-test/g,
+          `${el.name}: ["foobar", "barfoo"],\n      //backless-test`
+        );
+      }
+    });
+
+    file = file.replace(/Contoh/g, toPascalCase(modelname));
+    file = file.replace(/contoh/g, modelname);
+    file = file.replace(/CONTOH/g, toPascalCase(modelname));
+    fs.writeFileSync(filePath, file);
+    message = "File has been created.";
+  }
+  return { message };
+}
+
 function generateDocumentation(
   relTemplatePath,
   relativeDest,
@@ -170,4 +219,5 @@ export {
   addController,
   addModel,
   generateDocumentation,
+  generateTest,
 };

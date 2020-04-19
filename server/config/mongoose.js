@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 let MongoURL = "/*databaseName*/"; //<-- To manually config database URL change this.
 
 export default async function () {
-  if (process.env.NODE_ENV === "test") MongoURL += "_test";
   try {
+    if (process.env.NODE_ENV === "test") MongoURL += "_test";
     await mongoose.connect(MongoURL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
