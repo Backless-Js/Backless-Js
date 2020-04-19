@@ -14,29 +14,34 @@ chai.use(chaiHttp)
 let headers = {}
 let params = {}
 
-before(async () => {
-	if (process.env.NODE_ENV === 'test') {
-    await mongoose.connect(MongoURL)
-		const db = mongoose.connection
-		await db.createCollection('contohs')
-    await db.createCollection('users')
-    let registration = {
-      fullname: 'User McUser',
-      email: 'user@mail.com',
-      password: 'pass',
-    }
-    const result = await chai.request(app).post('/register').send(registration)
-		headers = { access_token: result.body.access_token }
-	}
+before((done) => {
+  mongoose.connect(MongoURL)
+  const db = mongoose.connection
+	db.dropCollection('contohs')
+  db.dropCollection('users')
+	db.createCollection('contohs')
+  db.createCollection('users')
+  let registration = {
+    fullname: 'User McUser',
+    email: 'user@mail.com',
+    password: 'pass',
+  }
+  chai
+    .request(app)
+    .post('/register')
+    .send(registration)
+    .then((result) => {
+      headers = { access_token: result.body.access_token }
+    })
+  done()
 })
 
-after(async () => {
-	if (process.env.NODE_ENV === 'test') {
-    await mongoose.connect(MongoURL)
-		const db = mongoose.connection
-		await db.dropCollection('contohs')
-		await db.dropCollection('users')
-	}
+after((done) => {
+  mongoose.connect(MongoURL)
+	const db = mongoose.connection
+	db.dropCollection('contohs')
+	db.dropCollection('users')
+  done()
 })
 
 describe(chalk.bold.black.bgWhiteBright('CONTOH TEST'), () => {
