@@ -1,6 +1,6 @@
 {
   "name": "backless",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Back-end free with backless",
   "main": "index.js",
   "preferGlobal": true,
@@ -21,7 +21,8 @@
     "cli",
     "backless",
     "serverless",
-    "express"
+    "express",
+    "node"
   ],
   "author": "Darindra R, M.Ramadhan, Marcell Pasaribu, Steven Setiawan",
   "license": "ISC",
