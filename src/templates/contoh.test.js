@@ -15,29 +15,33 @@ let headers = {}
 let params = {}
 
 before((done) => {
-  mongoose.connect(MongoURL)
-  const db = mongoose.connection
-	db.dropCollection('contohs')
-  db.dropCollection('users')
-	db.createCollection('contohs')
-  db.createCollection('users')
-  let registration = {
-    fullname: 'User McUser',
-    email: 'user@mail.com',
-    password: 'pass',
-  }
-  chai
-    .request(app)
-    .post('/register')
-    .send(registration)
-    .then((result) => {
-      headers = { access_token: result.body.access_token }
-    })
-  done()
+  mongoose.connect(MongoURL, (error) => {
+    if (!error) {
+      const db = mongoose.connection
+      db.dropCollection('contohs')
+      db.dropCollection('users')
+      db.createCollection('contohs')
+      db.createCollection('users')
+      let registration = {
+        fullname: 'User McUser',
+        email: 'user@mail.com',
+        password: 'pass',
+      }
+      chai
+        .request(app)
+        .post('/register')
+        .send(registration)
+        .then((result) => {
+          headers = { access_token: result.body.access_token }
+        })
+      done()
+    } else {
+      done(error)
+    }
+  })
 })
 
 after((done) => {
-  mongoose.connect(MongoURL)
 	const db = mongoose.connection
 	db.dropCollection('contohs')
 	db.dropCollection('users')

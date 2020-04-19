@@ -13,15 +13,19 @@ const { verify } = require('../helpers/jsonwebtoken')
 chai.use(chaiHttp)
 
 before((done) => {
-  mongoose.connect(MongoURL)
-  const db = mongoose.connection
-  db.dropCollection('users')
-  db.createCollection('users')
-  done()
+  mongoose.connect(MongoURL, (error) => {
+    if (!error) {
+      const db = mongoose.connection
+      db.dropCollection('users')
+      db.createCollection('users')
+      done()
+    } else {
+      done(error)
+    }
+  })
 })
 
 after((done) => {
-  mongoose.connect(MongoURL)
   const db = mongoose.connection
   db.dropCollection('users')
   done()
