@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-// let MongoURL = "/*databaseName*/"; //<-- To manually config database URL change this.
-let MongoURL = "mongodb://localhost:27017/tulangbelakang";
+let MongoURL = "/*databaseName*/"; //<-- To manually config database URL change this.
 
 export default async function () {
   if (process.env.NODE_ENV === "test") MongoURL += "_test";
