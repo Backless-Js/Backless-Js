@@ -1,14 +1,15 @@
 import path from "path";
 import fs from "fs-extra";
 
-function createFolder() {
-  const directory = path.join(process.cwd(), "./server");
+function createFolder(folder) {
+  const directory = path.join(process.cwd(), folder);
   let message;
-  if (!fs.existsSync(process.cwd())) {
-    fs.mkdirSync(process.cwd());
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory);
     message = "Server has been created.";
   } else {
     message = "Server already exist.";
+    throw new Error("Server already exist.");
   }
   return { message, directory };
 }

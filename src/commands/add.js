@@ -72,12 +72,12 @@ export default async function add(argv) {
     }
     spinner.text = chalk.yellow("Please wait model are being generated.");
     spinner.start();
-    routeSource(indexPath, argv.model);
     addRouting(
       "../templates/template-route.js",
       `${mvcPath}/routes/${argv.model.toLowerCase()}.js`,
       argv.model
     );
+    routeSource(indexPath, argv.model);
     addController(
       "../templates/template-controller.js",
       `${mvcPath}/controllers/${argv.model.toLowerCase()}.js`,
@@ -98,7 +98,7 @@ export default async function add(argv) {
     );
     generateDocumentation(
       "../templates/template-readme.md",
-      "${mvcPath}/README.md",
+      `${mvcPath}/README.md`,
       argv.model.toLowerCase(),
       attributes
     );
