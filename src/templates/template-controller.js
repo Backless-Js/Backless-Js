@@ -1,20 +1,36 @@
-import Template from "../models/TEMPLATE";
+import { Template, templateSchema } from "../models/TEMPLATE";
 
 class TemplateController {
   static async create(req, res, next) {
     try {
       let input = {};
       const keys = Object.keys(req.body);
-
-      keys.forEach((key) => {
-        input[key] = req.body[key];
-      });
-
-      const created = await Template.create(input);
-      res.status(201).json({
-        message: "Template created successfully.",
-        TEMPLATE: created,
-      });
+      const schemaKeys = Object.keys(templateSchema.obj)
+      if (keys.length !== 0) {
+        schemaKeys.forEach((schemaKey) => {
+          keys.forEach((key) => {
+            if (schemaKey === key) {
+              if (req.body[key].length !== 0) {
+                input[key] = req.body[key];
+              } else {
+                throw { message: "Value cannot be empty" }
+              }
+            }
+          });
+        })
+        if (Object.keys(input).length === 0) {
+          next({ message: "no input key found!" })
+        } else {
+          console.log(input, 'INI INPUT');
+          const created = await Template.create(input);
+          res.status(201).json({
+            message: "Template created successfully.",
+            Template: created,
+          });
+        }
+      } else {
+        next({ message: "Key is not found or empty" })
+      }
     } catch (error) {
       next(error);
     }

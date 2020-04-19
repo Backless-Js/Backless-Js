@@ -36,6 +36,8 @@ function nodeErrorMessage(message) {
     case "Not Authorized": {
       return 401;
     }
+    case "no input key found!":
+    case "Key is not found or empty":
     case "Token is undefined":
     case "Email is Invalid!":
     case "Password is Invalid!":
