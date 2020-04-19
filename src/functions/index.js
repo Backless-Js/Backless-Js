@@ -34,7 +34,7 @@ function addRouting(relTemplatePath, relativeDest, modelname) {
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);
     let file = fs.readFileSync(templatePath, "utf8");
-    file = file.replace(/template/, modelname);
+    file = file.replace(/template/, modelname.toLowerCase());
 
     fs.writeFileSync(filePath, file);
     message = "File has been created.";
