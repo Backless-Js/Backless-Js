@@ -12,20 +12,23 @@ const { verify } = require('../helpers/jsonwebtoken')
 
 chai.use(chaiHttp)
 
-before(async () => {
-	if (process.env.NODE_ENV === 'test') {
-    await mongoose.connect(MongoURL)
-		const db = mongoose.connection
-		await db.createCollection('users')
-	}
+before((done) => {
+  mongoose.connect(MongoURL, (error) => {
+    if (!error) {
+      const db = mongoose.connection
+      db.dropCollection('users')
+      db.createCollection('users')
+      done()
+    } else {
+      done(error)
+    }
+  })
 })
 
-after(async () => {
-	if (process.env.NODE_ENV === 'test') {
-    await mongoose.connect(MongoURL)
-		const db = mongoose.connection
-		await db.dropCollection('users')
-	}
+after((done) => {
+  const db = mongoose.connection
+  db.dropCollection('users')
+  done()
 })
 
 describe(chalk.bold.black.bgWhiteBright('USER TEST'), () => {

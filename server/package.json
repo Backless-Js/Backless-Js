@@ -4,7 +4,7 @@
   "description": "This server was created with Backless NPM Package",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --timeout 10000 --exit",
+    "test": "NODE_ENV=test mocha --no-deprecation --timeout 10000 --exit",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
