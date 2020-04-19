@@ -3,6 +3,7 @@ import yargs from "yargs";
 import create from "./commands/create";
 import add from "./commands/add";
 import serve from "./commands/serve";
+import prove from "./commands/prove";
 import figlet from "figlet";
 const chalk = yargonaut.chalk();
 
@@ -45,6 +46,12 @@ if (process.argv.slice(2).length < 1) {
       describe: "Start Backless Server",
       type: String,
       handler: () => serve(),
+    })
+    .command({
+      command: "prove",
+      describe: "Test All Backless Server Feature",
+      type: String,
+      handler: () => prove(),
     })
     .option("model", {
       alias: "m",
@@ -90,6 +97,12 @@ yargs
     describe: "Start Backless Server",
     type: String,
     handler: () => serve(),
+  })
+  .command({
+    command: "prove",
+    describe: "Test All Backless Server Feature",
+    type: String,
+    handler: () => prove(),
   })
   .showHelpOnFail(true)
   .epilog("Server never been easier with Backless")

@@ -18,6 +18,7 @@ import {
   addModel,
   toPascalCase,
   generateDocumentation,
+  generateTest,
 } from "../functions";
 const spinner = ora();
 const chalk = yargonaut.chalk();
@@ -217,6 +218,12 @@ export default async (argv) => {
       model.toLowerCase(),
       attributes
     );
+    generateTest(
+      "../templates/template.test.js",
+      `./server/test/${model.toLowerCase()}.test.js`,
+      model.toLowerCase(),
+      attributes
+    );
     generateDocumentation(
       "../templates/template-readme.md",
       "./server/README.md",
@@ -255,10 +262,12 @@ export default async (argv) => {
     let str = `${chalk.blue(
       `🎉 Congrats your server has been generated ! 🍻`
     )}\n\n${chalk.yellow(
+      "Please run this command first to test everything generated successfully :"
+    )}\n- backless prove\n\n${chalk.yellow(
       "To start your server run this command :"
     )}\n- backless serve\n\n${chalk.yellow(
       "To generate another model run this command :"
-    )}\n - cd to your backless server\n - backless add --name <model_name> --attributes <key>:<data_type>,<key>:<data_types>`;
+    )}\n- cd to your backless server\n- backless add --name <model_name> --attributes <key>:<data_type>,<key>:<data_types>`;
 
     console.clear();
     console.log(
