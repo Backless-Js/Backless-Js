@@ -1,4 +1,4 @@
-![logo](./src/assets/Logo1.png)
+![logo](./src/assets/Logo2.png)
 # Backless Js
 
 [![npm version](https://img.shields.io/npm/v/backless)](https://www.npmjs.com/package/backless) [![install size](https://packagephobia.now.sh/badge?p=backless)](https://packagephobia.now.sh/result?p=backless) [![npm downloads](https://img.shields.io/npm/dm/backless.svg?style=flat-square)](https://npm-stat.com/charts.html?package=backless)
