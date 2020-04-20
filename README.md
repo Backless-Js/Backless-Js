@@ -15,9 +15,9 @@
 
 ## Table of Contents
 * [Pre-requisite](#Pre-requisite)
-* [Installation](#installation)
 * [Help](#help)
 * [Version](#version)
+* [Installation](#installation)
 * [Tree](#Tree)
 * [Updating](#update)
 * [Usage](#usage)
@@ -29,21 +29,6 @@
 ```shell
  Node Js & MongoDB 
 ```
-
-## Installation
-
-#### Install Backless Js globally using this command
-
-```shell
-$ npm install -g backless
-```
-##### or
-#### You could create Backless Js REST API instantly using this command
-
-```shell
-$ npx backless create
-```
-
 ## Help
 
 #### To see all the command lines in our package, Use this command
@@ -67,6 +52,20 @@ $ backless --v
 
 ```shell
 $ backless --version
+```
+
+## Installation
+
+#### Install Backless Js globally using this command
+
+```shell
+$ npm install -g backless
+```
+##### or
+#### You could create Backless Js REST API instantly using this command
+
+```shell
+$ npx backless create
 ```
 
 ## Tree
@@ -95,6 +94,7 @@ $ backless create
 ### 1. Database Input
 
 #### In this section please input database name to your database that you want to use and press enter. The default name is (Backless-DB)
+
 ![DatabaseInput](./src/assets/databaseInput.png)
 
 ### 2. Model Input
