@@ -29,7 +29,6 @@ function addRouting(relTemplatePath, relativeDest, modelname) {
   const filePath = path.join(process.cwd(), relativeDest);
   let message;
   if (fs.existsSync(filePath)) {
-    message = "File already exists, remove or rename file first";
     throw new Error("File already exists, remove or rename file first");
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);
@@ -86,7 +85,6 @@ function addModel(
   const filePath = path.join(process.cwd(), relativeDest);
   let message;
   if (fs.existsSync(filePath)) {
-    message = "File already exists, remove or rename file first";
     throw new Error("File already exists, remove or rename file first");
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);

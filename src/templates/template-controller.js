@@ -5,32 +5,28 @@ class TemplateController {
     try {
       let input = {};
       const keys = Object.keys(req.body);
-      const schemaKeys = Object.keys(templateSchema.obj)
-      if (keys.length !== 0) {
-        schemaKeys.forEach((schemaKey) => {
-          keys.forEach((key) => {
-            if (schemaKey === key) {
-              if (req.body[key].length !== 0) {
-                input[key] = req.body[key];
-              } else {
-                throw { message: "Value cannot be empty" }
-              }
-            }
-          });
-        })
-        if (Object.keys(input).length === 0) {
-          next({ message: "no input key found!" })
+      const schemaKeys = Object.keys(templateSchema.obj);
+
+      if (keys.length < 1) throw new Error("Please insert a valid input");
+
+      keys.forEach((key) => {
+        const exist = schemaKeys.find((schemaKey) => key === schemaKey);
+        if (exist) {
+          if (req.body[key]) {
+            input[key] = req.body[key];
+          } else {
+            throw new Error("Input value cannot be empty");
+          }
         } else {
-          console.log(input, 'INI INPUT');
-          const created = await Template.create(input);
-          res.status(201).json({
-            message: "Template created successfully.",
-            Template: created,
-          });
+          throw new Error("Attribute name undefined");
         }
-      } else {
-        next({ message: "Key is not found or empty" })
-      }
+      });
+
+      const created = await Template.create(input);
+      res.status(201).json({
+        message: "Template created successfully.",
+        Template: created,
+      });
     } catch (error) {
       next(error);
     }
