@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-let MongoURL = "mongodb://localhost:27017/cobaDatabase"; //<-- To manually config database URL change this.
+let MongoURL = "/*databaseName*/"; //<-- To manually config database URL change this.
 
 export default async function () {
   try {

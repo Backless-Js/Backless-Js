@@ -36,9 +36,9 @@ function nodeErrorMessage(message) {
     case "Not Authorized": {
       return 401;
     }
-    case "no input key found!":
-    case "Key is not found or empty":
-    case "Token is undefined":
+    case "Attribute name undefined":
+    case "Input value cannot be empty":
+    case "Please insert a valid input":
     case "Email is Invalid!":
     case "Password is Invalid!":
       return 400;
@@ -46,9 +46,6 @@ function nodeErrorMessage(message) {
     case "Item not found":
     case "Data not found":
       return 404;
-    default: {
-      return 500;
-    }
   }
 }
 
