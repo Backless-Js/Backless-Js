@@ -18,6 +18,7 @@
 * [Installation](#installation)
 * [Help](#help)
 * [Version](#version)
+* [Tree](#Tree)
 * [Updating](#update)
 * [Usage](#usage)
 * [Authentication](#authentication)
@@ -67,6 +68,12 @@ $ backless --v
 ```shell
 $ backless --version
 ```
+
+## Tree
+
+#### Here is the folder tree in a server directory that you will receive after you unpack our package
+
+![Help](./src/assets/tree.png)
 
 ## Updating
 
