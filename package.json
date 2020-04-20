@@ -1,6 +1,6 @@
 {
   "name": "backless",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Back-end free with backless",
   "main": "index.js",
   "preferGlobal": true,
