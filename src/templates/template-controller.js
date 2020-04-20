@@ -1,19 +1,31 @@
-import Template from "../models/TEMPLATE";
+import { Template, templateSchema } from "../models/TEMPLATE";
 
 class TemplateController {
   static async create(req, res, next) {
     try {
       let input = {};
       const keys = Object.keys(req.body);
+      const schemaKeys = Object.keys(templateSchema.obj);
+
+      if (keys.length < 1) throw new Error("Please insert a valid input");
 
       keys.forEach((key) => {
-        input[key] = req.body[key];
+        const exist = schemaKeys.find((schemaKey) => key === schemaKey);
+        if (exist) {
+          if (req.body[key]) {
+            input[key] = req.body[key];
+          } else {
+            throw new Error("Input value cannot be empty");
+          }
+        } else {
+          throw new Error("Attribute name undefined");
+        }
       });
 
       const created = await Template.create(input);
       res.status(201).json({
         message: "Template created successfully.",
-        TEMPLATE: created,
+        Template: created,
       });
     } catch (error) {
       next(error);

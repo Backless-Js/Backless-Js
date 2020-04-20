@@ -17,7 +17,7 @@ let spinner = ora();
 
 export default async function add(argv) {
   try {
-    if (!RegExp(/^[a-z0-9]+$/i).test(argv.model)) {
+    if (!RegExp(/^[a-z0-9]+$/i).test(argv.model) || argv._.length > 1) {
       throw new Error(
         "Model name should not contains space and symbol character."
       );
@@ -25,7 +25,8 @@ export default async function add(argv) {
       throw new Error("Model user already exists.");
     } else if (
       !fs.existsSync(path.join(process.cwd(), "./server")) &&
-      !fs.existsSync(path.join(process.cwd(), "./models"))
+      !fs.existsSync(path.join(process.cwd(), "./models")) &&
+      !fs.existsSync(path.join(process.cwd(), "../models"))
     ) {
       throw new Error(
         "Please change directory to your working directory or server directory."
@@ -69,15 +70,18 @@ export default async function add(argv) {
     } else if (fs.existsSync(path.join(process.cwd(), "./models"))) {
       indexPath = "./routes/index.js";
       mvcPath = ".";
+    } else if (fs.existsSync(path.join(process.cwd(), "../models"))) {
+      indexPath = "../routes/index.js";
+      mvcPath = "..";
     }
     spinner.text = chalk.yellow("Please wait model are being generated.");
     spinner.start();
-    routeSource(indexPath, argv.model);
     addRouting(
       "../templates/template-route.js",
       `${mvcPath}/routes/${argv.model.toLowerCase()}.js`,
       argv.model
     );
+    routeSource(indexPath, argv.model);
     addController(
       "../templates/template-controller.js",
       `${mvcPath}/controllers/${argv.model.toLowerCase()}.js`,
@@ -98,7 +102,7 @@ export default async function add(argv) {
     );
     generateDocumentation(
       "../templates/template-readme.md",
-      "${mvcPath}/README.md",
+      `${mvcPath}/README.md`,
       argv.model.toLowerCase(),
       attributes
     );

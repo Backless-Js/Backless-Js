@@ -29,8 +29,7 @@ function addRouting(relTemplatePath, relativeDest, modelname) {
   const filePath = path.join(process.cwd(), relativeDest);
   let message;
   if (fs.existsSync(filePath)) {
-    message = "File already exists, remove or rename file first";
-    console.log(message);
+    throw new Error("File already exists, remove or rename file first");
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);
     let file = fs.readFileSync(templatePath, "utf8");
@@ -50,10 +49,8 @@ function addController(
 ) {
   const filePath = path.join(process.cwd(), relativeDest);
   let message;
-
   if (fs.existsSync(filePath)) {
-    message = "File already exists, remove or rename file first";
-    console.log(message);
+    throw new Error("File already exists, remove or rename file first");
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);
     let file = fs.readFileSync(templatePath, "utf8");
@@ -87,10 +84,8 @@ function addModel(
 ) {
   const filePath = path.join(process.cwd(), relativeDest);
   let message;
-
   if (fs.existsSync(filePath)) {
-    message = "File already exists, remove or rename file first";
-    console.log(message);
+    throw new Error("File already exists, remove or rename file first");
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);
     let file = fs.readFileSync(templatePath, "utf8");
@@ -121,10 +116,8 @@ function generateTest(
 ) {
   const filePath = path.join(process.cwd(), relativeDest);
   let message;
-
   if (fs.existsSync(filePath)) {
-    message = "File already exists, remove or rename file first";
-    console.log(message);
+    throw new Error("File already exists, remove or rename file first");
   } else {
     const templatePath = path.join(__dirname, relTemplatePath);
     let file = fs.readFileSync(templatePath, "utf8");
@@ -171,10 +164,9 @@ function generateDocumentation(
   const templatePath = path.join(__dirname, relTemplatePath);
   const destination = path.join(process.cwd(), relativeDest);
   let message;
-
   if (!fs.existsSync(destination)) {
     message = "Readme.md does not exist";
-    console.log(message);
+    throw new Error("Readme.md does not exist");
   } else {
     let readmeTemp = fs.readFileSync(templatePath, "utf8");
     let userReadme = fs.readFileSync(destination, "utf8");

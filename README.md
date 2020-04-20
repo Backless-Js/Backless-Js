@@ -16,7 +16,9 @@
 ## Table of Contents
 * [Pre-requisite](#Pre-requisite)
 * [Installation](#installation)
+* [Help](#help)
 * [Version](#version)
+* [Tree](#Tree)
 * [Updating](#update)
 * [Usage](#usage)
 * [Authentication](#authentication)
@@ -41,6 +43,19 @@ $ npm install -g backless
 ```shell
 $ npx backless create
 ```
+
+## Help
+
+#### To see all the command lines in our package, Use this command
+
+```shell
+$ backless --help
+```
+#### And you will found this text below
+
+![Help](./src/assets/help.png)
+
+
 ## Version
 
 #### If you installed globally make sure you've already installed Backless Js correctly using this command 
@@ -54,12 +69,18 @@ $ backless --v
 $ backless --version
 ```
 
+## Tree
+
+#### Here is the folder tree in a server directory that you will receive after you unpack our package
+
+![Help](./src/assets/tree.png)
+
 ## Updating
 
-#### To make sure our INSTANT EXPRESS REST API generator work correctly please make sure to always updated it to newer version using the same command as you install globally
+#### To make sure our INSTANT EXPRESS REST API generator work correctly please make sure to always updated it to newer version using this command
 
 ```shell
-$ npm install -g backless
+$ npm update -g backless
 ```
 
 ## Usage
@@ -104,6 +125,62 @@ $ backless create
 
 ### And Voilaa.... your server is ready to use !
 ![finish](./src/assets/finish.png)
+
+
+## Backless Command
+
+### Backless Prove
+##### This options is a command to run all testing file. by use this command
+
+```shell
+$ backless prove
+```
+##### You will found this text message
+
+![Prove](./src/assets/prove.png)
+
+##### All you have to do is to wait for a moment till this text message show up.
+
+![DoneProve](./src/assets/doneProve.png)
+
+##### Note: This message will show up by assuming that you're not changes anything in our package file.
+
+BUT
+
+##### If you want to customize your own server and there is an error, you will found this text below.
+
+![ErrorProve](./src/assets/errorProve.png)
+
+##### So, don't forget to customize all of related file to prevent the error.
+
+##### You also can run testing by move into your server's file and run this command in your terminal. 
+
+```shell
+$ npm run test
+```
+
+OR
+
+```shell
+$ npm test
+```
+
+### Backless Serve
+
+##### You can running the server by using this command in your terminal
+
+```shell
+$ backless serve
+```
+##### You will found this text after you running the server by using command above
+
+![ErrorProve](./src/assets/serve.png)
+
+##### You can also use this command to run the server
+
+```shell
+$ npm run dev
+```
 
 ## Add Another Models
 

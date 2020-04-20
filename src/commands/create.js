@@ -196,7 +196,7 @@ export default async (argv) => {
     /* CREATING SERVER FOLDER */
     spinner.text = "Please wait server are being generated.";
     spinner.start();
-    createFolder();
+    createFolder("./server");
     copyDirectory("../../server", "./server");
     copyDirectory("../templates/README.md", "./server/README.md");
     /* COPYING TEMPLATE TO SERVER FROM TEMPLATES */
