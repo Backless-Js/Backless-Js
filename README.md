@@ -45,7 +45,7 @@ $ npx backless create
 
 ## Help
 
-#### To see all the command lines in our package, you can using this command
+#### To see all the command lines in our package, Use this command
 
 ```shell
 $ backless --help
@@ -70,10 +70,10 @@ $ backless --version
 
 ## Updating
 
-#### To make sure our INSTANT EXPRESS REST API generator work correctly please make sure to always updated it to newer version using the same command as you install globally
+#### To make sure our INSTANT EXPRESS REST API generator work correctly please make sure to always updated it to newer version using this command
 
 ```shell
-$ npm install -g backless
+$ npm update -g backless
 ```
 
 ## Usage
@@ -169,7 +169,7 @@ $ backless serve
 
 ![ErrorProve](./src/assets/serve.png)
 
-##### You also can use this command to run the server
+##### You can also use this command to run the server
 
 ```shell
 $ npm run dev
