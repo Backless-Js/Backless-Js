@@ -106,18 +106,18 @@ $ backless create
 #### In this part, you will found text below and you have to decide the attribute's name for your model. The default name is (name)
 ![AttributeInput](./src/assets/AttributeInput.png)
 
-#### After you decided the attribute's name, choose the type for this attribute. The default type is (String)
+#### After you decided the attribute's name, choose the type for the attribute. The default type is (String)
 ![AttributeType](./src/assets/AttributeType.png)
 
 #### The last step of this section, you can choose to add another attribute by type "Y" or "yes" (this is the default if you're not choose or type anything) or you can choose NO by type  "n" or "no". 
 ![addAnotherAttribute](./src/assets/addAnotherAttribute.png)
 
 ### 4. Port Input
-#### In this section, you choose in which port you want to use. The default for this port is 3000. 
+#### In this section, you will choose which port you want to use. The default port is 3000. 
 ![portInput](./src/assets/portInput.png)
 
 ### 5. Jsonwebtoken Secret key Input
-#### After you input the port before port, you will found this text below and input that text to set your jsonwebtoken secret key in your '.env' file. The secret key default is 'Backless_Secret' if you let it empty.
+#### The secret key default is 'Backless_Secret' if you let it empty.
 ![jsonwebtokenInput](./src/assets/jsonwebtokenInput.png)
 
 ### Wait for a minute
@@ -130,7 +130,7 @@ $ backless create
 ## Backless Command
 
 ### Backless Prove
-##### This options is a command to run all testing file. by use this command
+##### To run all testing files you could use this command below.
 
 ```shell
 $ backless prove
