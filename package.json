@@ -1,6 +1,6 @@
 {
   "name": "backless",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Back-end free with backless",
   "main": "index.js",
   "preferGlobal": true,
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/Backless-Js/Backless-Js/issues"
   },
-  "homepage": "http://arah.in/backless",
+  "homepage": "http://arah.in/backless-js",
   "dependencies": {
     "boxen": "^4.2.0",
     "esm": "^3.2.25",
