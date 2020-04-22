@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/Backless-Js/Backless-Js/issues"
   },
-  "homepage": "https://github.com/Backless-Js/Backless-Js#readme",
+  "homepage": "http://arah.in/backless",
   "dependencies": {
     "boxen": "^4.2.0",
     "esm": "^3.2.25",
